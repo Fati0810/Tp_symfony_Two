@@ -1,0 +1,86 @@
+{% extends "front/base.html.twig" %}
+
+{% block main %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">  
+
+    <div class="container">
+    <a class="navbar-brand" href="{{ path('app_front_acceuil')}}">Acceuil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('vehicule_list')}}">Nos Véhicules<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('commande_list')}}">Historiques des commandes<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('app_logout')}}">Déconnexion<span class="sr-only"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+{{form_start(commandeForm)}}
+<div class="container">
+<h2>Formulaire de commande</h2>
+    <div class="form-group">
+        {{form_label(commandeForm.id_membre, ' Membre :')}}
+        {{form_widget(commandeForm.id_membre, {'attr':{'class':'form-control'}} )}}
+    </div>
+    <div>
+        {{form_label(commandeForm.id_vehicule, ' Véhicule :')}}
+        {{form_widget(commandeForm.id_vehicule, {'attr':{'class':'form-control'}})}}
+    </div>
+    <div>
+        {{form_label(commandeForm.date_heure_depart, ' Date et heure de départ :')}}
+        {{form_widget(commandeForm.date_heure_depart)}}
+    </div>
+    <div>
+        {{form_label(commandeForm.date_heure_fin, ' Date et heure de fin :')}}
+        {{form_widget(commandeForm.date_heure_fin)}}
+    </div>
+    <div>
+        {{form_label(commandeForm.prix_total, ' Prix Total :')}}
+        {{form_widget(commandeForm.prix_total, {'attr':{'class':'form-control'}})}}
+    </div>
+    <div>
+        {{form_label(commandeForm.date_enregistrement, ' Date et heure d\'enregistrement :')}}
+        {{form_widget(commandeForm.date_enregistrement)}}
+    </div>
+    <br>
+    <div>
+        {{form_widget(commandeForm.Enregistrer, {'attr':{'class':'bibi'}})}}
+    </div>
+</div>
+{{form_end(commandeForm)}}
+
+<style>
+.bibi{
+    background-color: white; 
+    border-radius: 4px ;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.bibi:hover{
+    background-color: #D0BEBB;
+    color: white
+}
+
+</style>
+
+{% endblock %}

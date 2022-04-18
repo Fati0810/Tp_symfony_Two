@@ -1,0 +1,37 @@
+{% extends "admin/base.html.twig" %}
+
+{% block main %}
+
+
+{{form_start(commandeForm)}}
+<div>
+    <div>
+        {{form_label(commandeForm.id_membre, ' Membre :')}}
+        {{form_widget(commandeForm.id_membre)}}
+    </div>
+    <div>
+        {{form_label(commandeForm.id_vehicule, ' Véhicule :')}}
+        {{form_widget(commandeForm.id_vehicule)}}
+    </div>
+    <div>
+        {{form_label(commandeForm.date_heure_depart, ' Date et heure de départ :')}}
+        {{form_widget(commandeForm.date_heure_depart)}}
+    </div>
+    <div>
+        {{form_label(commandeForm.date_heure_fin, ' Date et heure de fin :')}}
+        {{form_widget(commandeForm.date_heure_fin)}}
+    </div>
+    <div>
+        {{form_label(commandeForm.prix_total, ' Prix Total :')}}
+        {{form_widget(commandeForm.prix_total)}}
+    </div>
+    <div>
+        {{form_label(commandeForm.date_enregistrement, ' Date et heure d\'enregistrement :')}}
+        {{form_widget(commandeForm.date_enregistrement)}}
+    </div>
+    <div>
+        {{form_widget(commandeForm.Enregistrer)}}
+    </div>
+</div>
+{{form_end(commandeForm)}}
+{% endblock %}

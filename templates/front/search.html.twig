@@ -1,0 +1,60 @@
+{% extends "front/base.html.twig" %}
+
+{% block main %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">  
+
+    <div class="container">
+    <a class="navbar-brand" href="{{ path('app_front_acceuil')}}">Acceuil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('vehicule_list')}}">Nos Véhicules<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('commande_list')}}">Historiques des commandes<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('app_logout')}}">Déconnexion<span class="sr-only"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<h2>Les vehicules qui correspondent à votre recherche "{{ term }}" sont :</h2>
+
+<div class="container row g-3 align-items-center">
+<table class="table">
+    <tbody>
+        {% for vehicule in vehicules %}
+        <tr>
+            <td><img src="{{ asset("media/" ~ vehicule.media[0].src) }}" alt="{{ vehicule.media[0].alt }}"></td>
+            <td><a href="{{ path("vehicule_show", {'id' : vehicule.id })}}" style="color: black">
+            <h3><br><br>{{ vehicule.titre}}</h3>
+            {{vehicule.description}}
+            <br>
+            {{vehicule.prixJournalier}}€</a>
+            <br><br>
+            <a href="{{ path('commande_create')}}" class="btn btn-outline-secondary">Passez une commande</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+
+ 
+<style>
+a{
+text-decoration:none;
+}
+</style>
+
+{% endblock %}

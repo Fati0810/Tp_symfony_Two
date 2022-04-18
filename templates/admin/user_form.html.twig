@@ -1,0 +1,44 @@
+{% extends "admin/base.html.twig" %}
+
+{% block main %}
+
+{{ form_start(userForm) }}
+
+<div>
+    <div>
+    {{form_label(userForm.email, 'Email :')}}
+    {{form_widget(userForm.email)}}
+    </div>
+    <div>
+    {{form_label(userForm.password, 'Mot de passe :')}}
+    {{form_widget(userForm.password)}}
+    </div>
+    <div>
+    {{form_label(userForm.pseudo, 'Pseudo :')}}
+    {{form_widget(userForm.pseudo)}}
+    </div>
+    <div>
+    {{form_label(userForm.nom, 'Nom :')}}
+    {{form_widget(userForm.nom)}}
+    </div>
+    <div>
+    {{form_label(userForm.prenom, 'Prénom :')}}
+    {{form_widget(userForm.prenom)}}
+    </div>
+     <div>
+    {{form_label(userForm.civilite, 'Civilité :')}}
+    {{form_widget(userForm.civilite)}}
+    </div>
+     <div>
+    {{form_label(userForm.date_enregistrement, 'Date d\'enregistrement :')}}
+    {{form_widget(userForm.date_enregistrement)}}
+    </div>
+    <div>
+    {{form_widget(userForm.Enregistrer)}}
+    </div>
+
+</div>
+
+{{ form_end(userForm) }}
+
+{% endblock %}

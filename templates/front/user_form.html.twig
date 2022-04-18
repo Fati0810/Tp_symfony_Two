@@ -1,0 +1,93 @@
+{% extends "front/base.html.twig" %}
+
+{% block main %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">  
+
+    <div class="container">
+    <a class="navbar-brand" href="{{ path('app_front_acceuil')}}">Acceuil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('vehicule_list')}}">Nos Véhicules<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('commande_list')}}">Historiques des commandes<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('app_login')}}">Connexion<span class="sr-only"></span></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+{{ form_start(userForm) }}
+
+<div class="container">
+<h2>Inscrivez vous</h2>
+    <div class="form-group">
+    {{form_label(userForm.email, 'Email :')}}
+    {{form_widget(userForm.email, {'attr':{'class':'form-control','placeholder':'janedoe@gmail.com'}})}}
+    </div>
+    <div>
+    {{form_label(userForm.password, 'Mot de passe :')}}
+    {{form_widget(userForm.password, {'attr':{'class':'form-control','placeholder':''}})}}
+    </div>
+    <div>
+    {{form_label(userForm.pseudo, 'Pseudo :')}}
+    {{form_widget(userForm.pseudo, {'attr':{'class':'form-control', 'placeholder':'Jane01'}})}}
+    </div>
+    <div>
+    {{form_label(userForm.nom, 'Nom :')}}
+    {{form_widget(userForm.nom, {'attr':{'class':'form-control', 'placeholder':'Doe'}})}}
+    </div>
+    <div>
+    {{form_label(userForm.prenom, 'Prénom :')}}
+    {{form_widget(userForm.prenom, {'attr':{'class':'form-control', 'placeholder':'Jane' }})}}
+    </div>
+     <div>
+    {{form_label(userForm.civilite, 'Civilité :')}}
+    {{form_widget(userForm.civilite, {'attr':{'class':'form-control', 'placeholder':'Femme' }})}}
+    </div>
+     <div>
+    {{form_label(userForm.date_enregistrement, 'Date d\'enregistrement :')}}
+    {{form_widget(userForm.date_enregistrement)}}
+    </div>
+    <br>
+    <div>
+    {{form_widget(userForm.Enregistrer, {'attr':{'class':'bibi'}})}}
+    </div>
+
+</div>
+
+{{ form_end(userForm) }}
+
+<style>
+.bibi{
+    background-color: white; 
+    border-radius: 4px ;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.bibi:hover{
+    background-color: #D0BEBB;
+    color: white
+}
+
+</style>
+
+
+{% endblock %}

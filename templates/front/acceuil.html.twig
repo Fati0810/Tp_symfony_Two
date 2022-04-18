@@ -1,0 +1,67 @@
+{% extends "front/base.html.twig" %}
+
+{% block main %}
+
+{# navbar validé #}
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">  
+
+    <div class="container">
+    <a class="navbar-brand" href="{{ path('app_front_acceuil')}}">Acceuil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('vehicule_list')}}">Nos Véhicules<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('insert_user')}}">Inscription<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('app_login')}}">Connexion<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('app_logout')}}">Déconnexion<span class="sr-only"></span></a>
+                </li>
+                {# <li class="nav-item active">
+                     <a class="nav-link" href="{{ path('commande_list')}}">Historiques des commandes<span class="sr-only"></span></a>
+                </li> #}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="">
+    <img class="img-fluid" src="{{asset('images/fond2.png')}}" alt="fond d'écran ">
+    <div class="texte_center">
+        <h1>Bienvenue à bord</h1>
+        <p>Location de voiture 24h/24 et 7j/7.</p>
+        <form action="{{path('front_search') }}" method="get">
+	        <label for="term"></label>
+	        <input type="search" name="term" id="term">
+	        <input type="submit" value="Chercher">
+        </form> 
+    </div>
+</div>
+
+<style>
+.img-fluid {
+  position: relative;
+  color: black;
+}
+
+.texte_center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+</style>
+
+{% endblock %}

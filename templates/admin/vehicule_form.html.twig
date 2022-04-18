@@ -1,0 +1,42 @@
+{% extends "admin/base.html.twig" %}
+
+{% block main %}
+
+{{form_start(vehiculeForm)}}
+<div>
+    <div>
+        {{form_label(vehiculeForm.titre, ' Titre :')}}
+        {{form_widget(vehiculeForm.titre)}}
+    </div>
+    <div>
+        {{form_label(vehiculeForm.marque, ' Marque :')}}
+        {{form_widget(vehiculeForm.marque)}}
+    </div>
+    <div>
+        {{form_label(vehiculeForm.modele, ' Modèle :')}}
+        {{form_widget(vehiculeForm.modele)}}
+    </div>
+    <div>
+        {{form_label(vehiculeForm.description, ' Description :')}}
+        {{form_widget(vehiculeForm.description)}}
+    </div>
+    <div>
+        {{form_label(vehiculeForm.photo, ' Photo :')}}
+        {{form_widget(vehiculeForm.photo)}}
+    </div>
+    <div>
+        {{form_label(vehiculeForm.prix_journalier, ' Prix :')}}
+        {{form_widget(vehiculeForm.prix_journalier)}}
+    </div>
+    <div>
+        {{form_label(vehiculeForm.dete_enregistrement, ' Date d\'enregistrement :')}}
+        {{form_widget(vehiculeForm.dete_enregistrement)}}
+    </div>
+    <div>
+        {{form_widget(vehiculeForm.Enregistrer)}}
+    </div>
+</div>
+{{form_end(vehiculeForm)}}
+{% endblock %}
+
+{# ajouter du css #}

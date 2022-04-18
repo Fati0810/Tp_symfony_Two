@@ -1,0 +1,57 @@
+{% extends "admin/base.html.twig" %}
+
+{% block main %}
+
+<div class="container row g-3 align-items-center">
+<h2>Gestion des véhicules</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Véhicule</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Modèle</th>
+            <th scope="col">Description</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Date d'enregistrement</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for vehicule in vehicules %}
+        <tr>
+            <th scope="row"><a href="{{ path('admin_vehicule_show', {'id' : vehicule.id } ) }}" style="color: black">{{ vehicule.id }}</a></th>
+            <td>{{vehicule.titre}}</td>
+            <td>{{vehicule.marque}}</td>
+            <td>{{vehicule.modele}}</td>
+            <td>{{vehicule.description}}</td>
+            <td>{{vehicule.photo}}</td>
+            <td><img src="{{ asset("media/" ~ vehicule.media[0].src) }}" alt="{{ vehicule.media[0].alt }}"></td>
+            <td>{{vehicule.prixJournalier}}€</td>
+            <td>Valeur temporaire qui remplace date d'enregistrement</td>
+            {# <td>{{vehicule.deteEnregistrement}}</td> #}
+            <td>
+            <a href="{{ path('admin_vehicule_update',{'id' : vehicule.id})}}" style="color: black">
+            <i class="fa-solid fa-pen-to-square"></i></a>
+            <a href="{{ path('admin_vehicule_delete',{'id' : vehicule.id})}}" style="color: black">
+            <i class="fa-solid fa-trash-can"></i></a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{# le bouton est en dehors de la div principale #}
+<div>
+    <a href="{{ path('admin_vehicule_create')}}" class="btn btn-outline-secondary">Ajouter un véhicule</a>
+</div>
+
+<style>
+	img {
+		width: 150px;
+		height: 150px;
+	}
+</style>
+
+{% endblock %}
