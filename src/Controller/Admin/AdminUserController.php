@@ -35,42 +35,7 @@ class AdminUserController extends AbstractController
 
 
     /**
-     * @Route("admin/user/insert", name="admoin_insert_user")
-     */
-    public function insertUser(
-        Request $request,
-        EntityManagerInterface $entityManagerInterface,
-        UserPasswordHasherInterface $userPasswordHasherInterface
-    ) {
-        $user = new User();
-
-        $userForm = $this->createForm(UserFormType::class, $user);
-
-        $userForm->handleRequest($request);
-
-        if ($userForm->isSubmitted() && $userForm->isValid()) {
-            $user->setRoles(["ROLE_USER"]);
-
-            // On récupère le password entré dans le formulaire.
-            $plainPassword = $userForm->get('password')->getData();
-
-            // On hashe le password pour le sécuriser.
-            $hashedPassword = $userPasswordHasherInterface->hashPassword($user, $plainPassword);
-            $user->setPassword($hashedPassword);
-
-            $entityManagerInterface->persist($user);
-            $entityManagerInterface->flush();
-
-            return $this->redirectToRoute('app_login');
-        }
-
-        return $this->render('admin/user_form.html.twig', ['userForm' => $userForm->createView()]);
-    }
-
-
-
-    /**
-     * @Route("/{id}/update", name="admin_user_update")
+     * @Route("/{id}/update", name="admin_update_user")
      */
     public function adminUserUpdate(
         Request $request,
@@ -102,7 +67,7 @@ class AdminUserController extends AbstractController
 
 
     /**
-     * @Route("/delete/{id}", name="admin_user_delete")
+     * @Route("/delete/{id}", name="admin_delete_user")
      */
     public function adminDeleteUse($id, EntityManagerInterface $entityManagerInterface, UserRepository $userRepository)
     {

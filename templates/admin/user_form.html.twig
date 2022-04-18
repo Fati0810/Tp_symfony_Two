@@ -7,38 +7,57 @@
 <div>
     <div>
     {{form_label(userForm.email, 'Email :')}}
-    {{form_widget(userForm.email)}}
+    {{form_widget(userForm.email, {'attr':{'class':'form-control'}})}}
     </div>
     <div>
     {{form_label(userForm.password, 'Mot de passe :')}}
-    {{form_widget(userForm.password)}}
+    {{form_widget(userForm.password, {'attr':{'class':'form-control'}})}}
     </div>
     <div>
     {{form_label(userForm.pseudo, 'Pseudo :')}}
-    {{form_widget(userForm.pseudo)}}
+    {{form_widget(userForm.pseudo, {'attr':{'class':'form-control'}})}}
     </div>
     <div>
     {{form_label(userForm.nom, 'Nom :')}}
-    {{form_widget(userForm.nom)}}
+    {{form_widget(userForm.nom, {'attr':{'class':'form-control'}})}}
     </div>
     <div>
     {{form_label(userForm.prenom, 'Prénom :')}}
-    {{form_widget(userForm.prenom)}}
+    {{form_widget(userForm.prenom, {'attr':{'class':'form-control'}})}}
     </div>
      <div>
     {{form_label(userForm.civilite, 'Civilité :')}}
-    {{form_widget(userForm.civilite)}}
+    {{form_widget(userForm.civilite, {'attr':{'class':'form-control'}})}}
     </div>
      <div>
     {{form_label(userForm.date_enregistrement, 'Date d\'enregistrement :')}}
     {{form_widget(userForm.date_enregistrement)}}
     </div>
     <div>
-    {{form_widget(userForm.Enregistrer)}}
+    {{form_widget(userForm.Enregistrer, {'attr':{'class':'bibi'}})}}
     </div>
 
 </div>
 
 {{ form_end(userForm) }}
+
+<style>
+.bibi{
+    background-color: white; 
+    border-radius: 4px ;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.bibi:hover{
+    background-color: #D0BEBB;
+    color: white
+}
+
+</style>
 
 {% endblock %}

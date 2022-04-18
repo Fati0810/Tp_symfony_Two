@@ -4,7 +4,12 @@
 
 <h2>Voici l'image de {{image.title}}</h2>
     <img src="{{ asset('media/' ~ image.src) }}" alt="{{ image.alt }}" class="a">
-
+		<h3>
+			<a href="{{ path("admin_media_update", {'id' : image.id}) }}" style="color: black">Modifier</a>
+		</h3>
+		<h3>
+			<a href="{{ path("admin_media_delete", {'id' : image.id}) }}" style="color: black" >Supprimer</a>
+		</h3>
 <style>
 .a{
     width: 150px;

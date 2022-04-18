@@ -7,27 +7,46 @@
 <div>
     <div> 
     {{form_label(mediaForm.src, 'Fichier de l\'image:')}}
-	{{form_widget(mediaForm.src)}}
+	{{form_widget(mediaForm.src, {'attr':{'class':'form-control'}})}}
     </div>
     <div> 
     {{form_label(mediaForm.alt, 'Alt de l\'image :')}}
-	{{form_widget(mediaForm.alt)}}
+	{{form_widget(mediaForm.alt, {'attr':{'class':'form-control'}})}}
     </div>
     <div> 
     {{form_label(mediaForm.title, 'Titre de l\'image :')}}
-	{{form_widget(mediaForm.title)}}
+	{{form_widget(mediaForm.title, {'attr':{'class':'form-control'}})}}
     </div>
     <div> 
     {{form_label(mediaForm.vehicule, 'Vehicule de l\image :')}}
-	{{form_widget(mediaForm.vehicule)}}
+	{{form_widget(mediaForm.vehicule, {'attr':{'class':'form-control'}})}}
     </div>
+    <br>
     <div>
-    {{ form_widget(mediaForm.Enregistrer) }}
+    {{ form_widget(mediaForm.Enregistrer, {'attr':{'class':'bibi'}}) }}
     </div>
 
 </div>
 
 {{ form_end(mediaForm) }}
 
+<style>
+.bibi{
+    background-color: white; 
+    border-radius: 4px ;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.bibi:hover{
+    background-color: #D0BEBB;
+    color: white
+}
+
+</style>
 
 {% endblock %}

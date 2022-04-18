@@ -7,11 +7,11 @@
 <div>
     <div>
         {{form_label(commandeForm.id_membre, ' Membre :')}}
-        {{form_widget(commandeForm.id_membre)}}
+        {{form_widget(commandeForm.id_membre, {'attr':{'class':'form-control'}})}}
     </div>
     <div>
         {{form_label(commandeForm.id_vehicule, ' Véhicule :')}}
-        {{form_widget(commandeForm.id_vehicule)}}
+        {{form_widget(commandeForm.id_vehicule, {'attr':{'class':'form-control'}})}}
     </div>
     <div>
         {{form_label(commandeForm.date_heure_depart, ' Date et heure de départ :')}}
@@ -23,15 +23,36 @@
     </div>
     <div>
         {{form_label(commandeForm.prix_total, ' Prix Total :')}}
-        {{form_widget(commandeForm.prix_total)}}
+        {{form_widget(commandeForm.prix_total, {'attr':{'class':'form-control'}})}}
     </div>
     <div>
         {{form_label(commandeForm.date_enregistrement, ' Date et heure d\'enregistrement :')}}
         {{form_widget(commandeForm.date_enregistrement)}}
     </div>
+    <br>
     <div>
-        {{form_widget(commandeForm.Enregistrer)}}
+        {{form_widget(commandeForm.Enregistrer, {'attr':{'class':'bibi'}})}}
     </div>
 </div>
 {{form_end(commandeForm)}}
+
+<style>
+.bibi{
+    background-color: white; 
+    border-radius: 4px ;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.bibi:hover{
+    background-color: #D0BEBB;
+    color: white
+}
+
+</style>
+
 {% endblock %}

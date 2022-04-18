@@ -23,15 +23,17 @@
     </thead>
     <tbody>
         <tr>
-            <th scope="row"><a href="{{ path('admin_user_show', {'id': user.id } ) }}" style="color: black">{{ user.id }}</a></th>
+            {# <th scope="row">{{ user.id }}</th> #}
             <td>{{user.email}}</td>
+            <td>Role</td>
             {# <td>{{user.roles}}</td> #}
             <td>{{user.password}}</td>
             <td>{{user.pseudo}}</td>
             <td>{{user.nom}}</td>
             <td>{{user.prenom}}</td>
             <td>{{user.civilite}}</td>
-            <td>{{user.dateEnregistrement}}</td>
+            <td>Date</td>
+            {# <td>{{user.dateEnregistrement}}</td> #}
             <td>
                 <a href="{{ path('admin_update_user', {'id' : user.id } ) }}" style="color: black">
                 <i class="fa-solid fa-pen-to-square"></i></a>
@@ -41,8 +43,6 @@
     </tbody>
 </table>
 </div>
-<div>
-    <a href="{{ path('admin_insert_user')}}" class="btn btn-outline-secondary">Ajouter un user</a>
-</div>
+
 
 {% endblock %}

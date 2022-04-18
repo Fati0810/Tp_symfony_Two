@@ -22,15 +22,17 @@
     <tbody>
     {% for user in users %}
         <tr>
-            <th scope="row"><a href="{{ path('admin_user_show', {'id': user.id } ) }}" style="color: black">{{ user.id }}</a></th>
+            {# <th scope="row"><a href="{{ path('admin_user_show', {'id': user.id } ) }}" style="color: black">{{ user.id }}</a></th> #}
             <td>{{user.email}}</td>
             {# <td>{{user.roles}}</td> #}
+            <td>User</td>
             <td>{{user.password}}</td>
             <td>{{user.pseudo}}</td>
             <td>{{user.nom}}</td>
             <td>{{user.prenom}}</td>
             <td>{{user.civilite}}</td>
-            <td>{{user.dateEnregistrement}}</td>
+            <td>Date</td>
+            {# <td>{{user.dateEnregistrement}}</td> #}
             <td>
                 <a href="{{ path('admin_update_user', {'id' : user.id } ) }}" style="color: black">
                 <i class="fa-solid fa-pen-to-square"></i></a>
